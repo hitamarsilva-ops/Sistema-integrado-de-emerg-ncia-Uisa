@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* Uisa Official Color Palette - Brand Guidelines 2019 */
+    --uisa-red: #de2726; /* Pantone P485 */
+    --uisa-orange: #f58220; /* Pantone P151 */
+    --uisa-yellow: #ffcf01; /* Pantone P116 */
+    --uisa-green: #007960; /* Pantone PM335 */
+    --uisa-black: #000000; /* Pantone PMS */
+    --uisa-carbon: #4b4f55; /* Pantone P7540 */
+    --uisa-gray: #a5a7aa; /* Pantone P7540 50% */
+    --uisa-white: #ffffff;
+  }
+
+  html, body {
+    font-family: 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background-color: #f8faf9;
+    color: #0f172a;
+    -webkit-tap-highlight-color: transparent;
+    overscroll-behavior-y: contain;
+  }
+
+  button, a, select, input, textarea {
+    touch-action: manipulation;
+  }
+
+  /* Uisa Typography: Bold no título (Manual 2.6) */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+  }
+}
+
+/* Uisa Brand Gradient */
+.uisa-gradient {
+  background: linear-gradient(135deg, #de2726 0%, #f58220 50%, #ffcf01 100%);
+}
+
+.uisa-gradient-subtle {
+  background: linear-gradient(135deg, rgba(222, 39, 38, 0.15) 0%, rgba(245, 130, 32, 0.1) 50%, rgba(255, 207, 1, 0.05) 100%);
+}
+
+.uisa-pattern-triangles {
+  background-image: radial-gradient(rgba(245, 130, 32, 0.08) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Universal Print Styles for all views and modals */
+@media print {
+  /* Hide top navigation, action buttons, search inputs and interactive chrome */
+  header,
+  nav,
+  aside,
+  .print\:hidden,
+  .no-print,
+  button {
+    display: none !important;
+  }
+
+  body {
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+    font-size: 10pt !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Ensure containers span full printable width without scrollbars */
+  main,
+  #root,
+  .w-full {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  /* Modals open for printing fill the printed page cleanly */
+  .fixed.inset-0 {
+    position: static !important;
+    background: #ffffff !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: block !important;
+    overflow: visible !important;
+  }
+
+  .max-h-\[90vh\],
+  .max-h-\[92vh\],
+  .max-h-\[85vh\],
+  .overflow-y-auto {
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  /* Prevent card and table row fragmentation across page breaks */
+  tr,
+  .rounded-2xl,
+  .rounded-xl {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  /* Remove shadows to avoid printer raster artifacts */
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  @page {
+    size: A4 portrait;
+    margin: 1.2cm;
+  }
+}

@@ -1,0 +1,167 @@
+import { FireTruck, FireTruckInspectionItem, FireTruckInspectionRecord } from '../types/truck';
+
+export const SST_RE_109_METADATA = {
+  documentCode: 'SST.RE-109',
+  title: 'CHECK LIST PARA CAMINHÃO BOMBEIRO (CAMINHÃO PIPA)',
+  revision: '00',
+  date: '23/06/2026',
+  page: '1/1',
+  annualReviewDate: '23/06/2027', // Revisão anual
+};
+
+export const FIRE_TRUCK_CHECKLIST_ITEMS: FireTruckInspectionItem[] = [
+  {
+    number: 1,
+    question: 'O motorista do caminhão bombeiro está com o treinamento de brigada válido?',
+    category: 'condutor_brigada',
+  },
+  {
+    number: 2,
+    question: 'O nível de água do reservatório (tanque principal cheio)?',
+    category: 'equipamentos_combate',
+  },
+  {
+    number: 3,
+    question: 'O Esguicho Canhão (jato regulável/neblina) está funcionando corretamente?',
+    category: 'equipamentos_combate',
+  },
+  {
+    number: 4,
+    question: 'Os brigadistas do caminhão bombeiro estão com o treinamento de brigada válido?',
+    category: 'condutor_brigada',
+  },
+  {
+    number: 5,
+    question: 'Existe para os brigadistas de plantão o kit de combate a incêndio (blusão, calça, balaclava, luva, máscara, óculos)? Estão em condições de uso?',
+    category: 'equipamentos_combate',
+  },
+  {
+    number: 6,
+    question: 'O extintor de combate a incêndio está carregado e válido?',
+    category: 'equipamentos_combate',
+  },
+  {
+    number: 7,
+    question: 'A escada de acesso ao canhão está com os degraus firmes, fixo e sem trincas estruturais?',
+    category: 'veiculo_estrutural',
+  },
+  {
+    number: 8,
+    question: 'Foi realizado pelo motorista o check list do operador antes da utilização do veículo?',
+    category: 'veiculo_estrutural',
+  },
+  {
+    number: 9,
+    question: 'O Pinga-fogo (Drip Torch) está com sua estrutura metálica, bico e válvula íntegros (sem vazamento)?',
+    category: 'auxiliares',
+  },
+  {
+    number: 10,
+    question: 'Autonomia do Pinga-Fogo: O reservatório do equipamento (galão) está abastecido em nível adequado pronto para atendimento?',
+    category: 'auxiliares',
+  },
+  {
+    number: 11,
+    question: 'Existe cone de sinalização no caminhão pipa?',
+    category: 'auxiliares',
+  },
+  {
+    number: 12,
+    question: 'As grades de proteção frontal do caminhão estão em perfeitas condições?',
+    category: 'veiculo_estrutural',
+  },
+];
+
+export const INITIAL_FIRE_TRUCKS: FireTruck[] = [
+  {
+    id: 'truck-cb-01',
+    prefix: 'CB-01 (Pipa Bombeiro)',
+    plate: 'QBU-3737',
+    model: 'Mercedes-Benz Atego 2730 6x4',
+    capacityLiters: 15000,
+    company: 'UISA Bioenergia & Açúcar',
+    sector: 'Brigada Florestal & Agrícola',
+    front: 'Frente Canavieira 01 / Setor Agrícola',
+    pumpModel: 'Centrífuga Autoescorvante 750 GPM com PTO',
+    canonNozzle: 'Canhão Monitor 2.1/2" Jato Sólido e Neblina',
+    status: 'operacional',
+    lastInspectionDate: '2026-06-23',
+  },
+  {
+    id: 'truck-cb-02',
+    prefix: 'CB-02 (Pipa Bombeiro)',
+    plate: 'QBU-3738',
+    model: 'Volvo FMX 380 6x4',
+    capacityLiters: 20000,
+    company: 'UISA Bioenergia & Açúcar',
+    sector: 'Parque Industrial & Destilaria',
+    front: 'Pátio Industrial / Destilaria / ETA',
+    pumpModel: 'Bomba de Alta Vazão 1000 GPM',
+    canonNozzle: 'Canhão Monitor com proporcionador de espuma LGE',
+    status: 'operacional',
+    lastInspectionDate: '2026-06-23',
+  },
+  {
+    id: 'truck-cb-03',
+    prefix: 'CB-03 (Pipa Florestal)',
+    plate: 'QBU-3739',
+    model: 'Mercedes-Benz Atego 2730 6x4',
+    capacityLiters: 15000,
+    company: 'UISA Bioenergia & Açúcar',
+    sector: 'Frente de Colheita / Aceiros',
+    front: 'Frente Canavieira 02',
+    pumpModel: 'Centrífuga Autoescorvante 750 GPM',
+    canonNozzle: 'Canhão Monitor 2.1/2" Jato Regulável',
+    status: 'operacional',
+    lastInspectionDate: '2026-06-22',
+  },
+  {
+    id: 'truck-cb-04',
+    prefix: 'CB-04 (Pipa Reserva)',
+    plate: 'QBU-3740',
+    model: 'Scania P310 6x4',
+    capacityLiters: 15000,
+    company: 'UISA Bioenergia & Açúcar',
+    sector: 'Empacotamento & ADM/GMA',
+    front: 'Pátio Central Assari',
+    pumpModel: 'Bomba Centrífuga 750 GPM',
+    canonNozzle: 'Canhão Manual de Teto Regulável',
+    status: 'operacional',
+    lastInspectionDate: '2026-06-20',
+  },
+];
+
+export const INITIAL_TRUCK_INSPECTIONS: FireTruckInspectionRecord[] = [
+  {
+    id: 'insp-cb-001',
+    truckId: 'truck-cb-01',
+    truckPrefix: 'CB-01 (Pipa Bombeiro)',
+    plate: 'QBU-3737',
+    company: 'UISA Bioenergia & Açúcar',
+    sector: 'Brigada Florestal & Agrícola',
+    front: 'Frente Canavieira 01',
+    date: '2026-06-23',
+    time: '07:30',
+    inspectorName: 'Carlos Eduardo Mendes - Técnico SST',
+    driverName: 'Marcos Vinicius Santos - Motorista Operador',
+    inspectorRegistration: 'RE-44120',
+    driverRegistration: 'RE-38910',
+    answers: {
+      1: { status: 'C', observation: '' },
+      2: { status: 'C', observation: '' },
+      3: { status: 'C', observation: '' },
+      4: { status: 'C', observation: '' },
+      5: { status: 'C', observation: '' },
+      6: { status: 'C', observation: '' },
+      7: { status: 'C', observation: '' },
+      8: { status: 'C', observation: '' },
+      9: { status: 'C', observation: '' },
+      10: { status: 'C', observation: '' },
+      11: { status: 'C', observation: '' },
+      12: { status: 'C', observation: '' },
+    },
+    generalObservations: 'Veículo em perfeito estado de operação e pronto para combate a incêndios florestais.',
+    status: 'finalizada',
+    createdAt: '2026-06-23T07:30:00.000Z',
+  },
+];

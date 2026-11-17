@@ -1,0 +1,8 @@
+{
+  "name": "Remix ExtintorPRO Desktop - Gestão e Inspeção de Extintores",
+  "description": "Sistema Desktop de controle de extintores industriais com separação por setores, validade de recarga, alertas automáticos e estoque de almoxarifado.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
